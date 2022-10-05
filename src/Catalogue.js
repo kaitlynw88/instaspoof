@@ -1,28 +1,36 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useState,useEffect } from "react";
 
 const Catalogue = ()=>{
+
+    // get Artist names
+    const [artists, setArtists] = useState([])
     useEffect( ()=>{
         // make an AJAX Call to the reiksmusuem API
-
+        
         axios({
-            url:"https://www.rijksmuseum.nl/api/nl/collection/SK-C-5",
+            url:"https://www.rijksmuseum.nl/api/nl/collection",
             params:{
                 key: "MWXSYrhN",
-                language: "en",
+                imgonly: true
             }
         }).then((response) =>{
-            console.log(response)
+            setArtists(response.data.artObjects)
+            console.log(response.data.artObjects)
         })
-
-    })
-
+    }, [])
+    
     return(
-        <p>
-            this is a response
-        </p>
-    )
+        <select>
+            {
+                artists.map((artist) => (
+                    <option key = {artist.id} value = {artist.id}>{artist.principalOrFirstMaker}</option>
+                ))
+            }
+        </select>
+        )
 }
+
 
 
 export default Catalogue
