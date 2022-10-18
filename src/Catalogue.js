@@ -4,7 +4,7 @@ import { useState,useEffect } from "react";
 const Catalogue = ()=>{
 
     // get Artist names
-    const [artists, setArtists] = useState([])
+    const [images, setImages] = useState([])
     useEffect( ()=>{
         // make an AJAX Call to the reiksmusuem API
         
@@ -12,23 +12,31 @@ const Catalogue = ()=>{
             url:"https://www.rijksmuseum.nl/api/nl/collection",
             params:{
                 key: "MWXSYrhN",
-                imgonly: true
+                imgonly: true,
+                ps:50,
+                q: "woman"
             }
         }).then((response) =>{
-            setArtists(response.data.artObjects)
+            setImages(response.data.artObjects)
             console.log(response.data.artObjects)
         })
     }, [])
     
     return(
-        <select>
+        <ul>
             {
-                artists.map((artist) => (
-                    <option key = {artist.id} value = {artist.id}>{artist.principalOrFirstMaker}</option>
-                ))
+                images.map((image)=>(
+                    <li>
+                        <p>This is an image made by {image.principalOrFirstMaker}</p>
+                        <img src={image.webImage.url}/>
+                    </li>
+                ))    
             }
-        </select>
-        )
+        </ul>
+        
+       
+    )
+    
 }
 
 
