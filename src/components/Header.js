@@ -8,7 +8,7 @@ const Header =(props)=>{
     let artists = props.artist;
 
     const[userArtist, setUserArtist] =useState()
-    const [userImg, setUserImg] = useState()
+    const [userImg, setUserImg] = useState([])
 
     // add an event listener on the option selected
     const handleChange =(e)=>{
@@ -45,7 +45,6 @@ const Header =(props)=>{
             </select>
             <ul>
                 <Catalogue array={userImg}/>
-                
             </ul>
             
         </>

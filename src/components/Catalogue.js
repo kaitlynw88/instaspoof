@@ -3,30 +3,22 @@ import { useState, useEffect } from "react";
 
 
 const Catalogue = (props)=>{
-    const [img, setImg] = useState([])
-
-    let userImg = props.array
-    
-    useEffect(()=>{
-        setImg(userImg)
-        console.log(img)
-    },[userImg])
-
-    
-    
     
     return(
-        
-          <ul>
-            
+         <ul>
             {
-                img.map((indImg)=>(
-                    <img src={indImg.webImage.url}/>
+                props.array.map((indImg)=>(
+
+                    <li>
+                        <img src={indImg.webImage.url}/>
+                    </li>
                 ))
             }
+
+            {/* <p>hello</p> */}
             
 
-          </ul>  
+         </ul>
         
     )
     
