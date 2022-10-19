@@ -27,7 +27,6 @@ const Header =(props)=>{
             }
         }).then((response) => {
             setUserImg(response.data.artObjects)
-            console.log(response.data.artObjects)
             return 
         })
     }, [userArtist])
@@ -45,6 +44,7 @@ const Header =(props)=>{
                 
             </select>
             <ul>
+                <Catalogue array={userImg}/>
                 
             </ul>
             

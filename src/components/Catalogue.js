@@ -4,17 +4,29 @@ import { useState, useEffect } from "react";
 
 const Catalogue = (props)=>{
     const [img, setImg] = useState([])
-    
+
+    let userImg = props.array
     
     useEffect(()=>{
-        let userImg = props.imgArray
         setImg(userImg)
         console.log(img)
-    },[])
+    },[userImg])
+
+    
+    
     
     return(
-        <p>hello</p>
+        
+          <ul>
             
+            {
+                img.map((indImg)=>(
+                    <img src={indImg.webImage.url}/>
+                ))
+            }
+            
+
+          </ul>  
         
     )
     
