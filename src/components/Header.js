@@ -22,8 +22,8 @@ const Header =(props)=>{
             params: {
                 key: "MWXSYrhN",
                 imgonly: true,
-                ps: 50,
-                s:userArtist
+                ps: 10,
+                involvedMaker: userArtist
             }
         }).then((response) => {
             setUserImg(response.data.artObjects)
@@ -32,22 +32,27 @@ const Header =(props)=>{
     }, [userArtist])
     
     return(
-        <>
-            <h1>Instaspoof</h1>
+        <div className="body">
+            <header>
+                <nav>
+                    <h1>Instaspoof</h1>
             
-            <select onChange={e =>handleChange(e)}>
-                {
-                    artists.map((artist) => 
-                    <option>{artist}</option>
-                    )
-                }
-                
-            </select>
+                    <select onChange={e =>handleChange(e)}>
+                        {
+                            artists.map((artist) => 
+                            <option>{artist}</option>
+                            )
+                        }
+                    </select>
+                </nav>
+            </header>
+                       
             <ul>
+                <h2>{userArtist}</h2>
                 <Catalogue array={userImg}/>
             </ul>
             
-        </>
+        </div>
     
     )
 }

@@ -1,4 +1,4 @@
-import './App.css';
+import './app.scss';
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Catalogue from './components/Catalogue';
@@ -32,10 +32,7 @@ function App() {
   
   return (
     <div className="App">
-      <header className="App-header">
         <Header artist={artistArray}/>
-          
-      </header>
     </div>
     
   );
