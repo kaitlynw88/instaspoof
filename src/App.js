@@ -1,7 +1,6 @@
 import './app.scss';
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Catalogue from './components/Catalogue';
 import Header from './components/Header';
 
 function App() {
@@ -30,6 +29,9 @@ function App() {
     if(!artistArray.includes(image.principalOrFirstMaker)){
       artistArray.push(image.principalOrFirstMaker)
     }
+    return(
+      artistArray
+    )
   })
   
   return (
