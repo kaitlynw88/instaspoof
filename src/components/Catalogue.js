@@ -13,7 +13,10 @@ const Catalogue = (props)=>{
                 props.array.map((indImg)=>(
 
                     <li className="imgContainer" key={indImg.id}>
-                        <img src={indImg.webImage.url}/>
+                        <img 
+                        src={indImg.webImage.url}
+                        alt={indImg.title}
+                        />
                         <p>{indImg.title}</p>
                         <i><FontAwesomeIcon icon={faHeart} /></i>
                     </li>
