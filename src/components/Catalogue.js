@@ -28,4 +28,4 @@ const Catalogue = (props)=>{
 
 
 
-export default Catalogue
+export default Catalogue;

@@ -13,15 +13,17 @@ function App() {
 
     axios({
       url: "https://www.rijksmuseum.nl/api/nl/collection",
+      method: "GET",
+      dataResponse: "JSON",
       params: {
         key: "MWXSYrhN",
         imgonly: true,
-        ps: 50
+        ps: 50,
       }
     }).then((response) => {
       setImages(response.data.artObjects)
     })
-  }, [images])
+  }, [])
   
   let artistArray = []
   images.map((image) => {

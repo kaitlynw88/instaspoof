@@ -15,20 +15,25 @@ const Header =(props)=>{
         e.preventDefault()
         setUserArtist(e.target.value)
     }
-    
+
     useEffect(() => {
+
         axios({
-            url: "https://www.rijksmuseum.nl/api/nl/collection",
+            url: "https://www.rijksmuseum.nl/api/en/collection",
+            method: "GET",
+            dataResponse: "JSON",
             params: {
                 key: "MWXSYrhN",
                 imgonly: true,
-                ps: 10,
+                format: "JSON",
                 involvedMaker: userArtist
             }
         }).then((response) => {
-            setUserImages(response.data.artObjects)
-            return 
+            //update our "art" state with the response from the API
+            setUserImages(response.data.artObjects);
+            // setIsLoading(false)
         })
+
     }, [userArtist])
 
     
