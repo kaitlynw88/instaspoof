@@ -1,16 +1,11 @@
 import "./../styles/Catalogue.scss";
-import { useState } from "react";
+import { useState, useEff } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
 
 const Catalogue = (props)=>{
-    const [likes, setLikes] = useState("")
+    // const [likes, setLikes] = useState("")
     
-    console.log(props)
-    
-
-
-
     return(
 
          <>
@@ -18,7 +13,7 @@ const Catalogue = (props)=>{
             {
                 props.array.map((indImg)=>(
 
-                    <li className="imgContainer">
+                    <li className="imgContainer" key={indImg.id}>
                         <img src={indImg.webImage.url}/>
                         <p>{indImg.title}</p>
                         <i><FontAwesomeIcon icon={faHeart} /></i>

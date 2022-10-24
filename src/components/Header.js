@@ -7,8 +7,8 @@ const Header =(props)=>{
 
     let artists = props.artist;
 
-    const[userArtist, setUserArtist] =useState()
-    const [userImg, setUserImg] = useState([])
+    const[userArtist, setUserArtist] =useState("")
+    const [userImages, setUserImages] = useState([])
 
     // add an event listener on the option selected
     const handleChange =(e)=>{
@@ -26,10 +26,12 @@ const Header =(props)=>{
                 involvedMaker: userArtist
             }
         }).then((response) => {
-            setUserImg(response.data.artObjects)
+            setUserImages(response.data.artObjects)
             return 
         })
     }, [userArtist])
+
+    
     
     return(
         <div className="body">
@@ -39,9 +41,10 @@ const Header =(props)=>{
             
                     <select onChange={e =>handleChange(e)}>
                         {
-                            artists.map((artist) => 
-                            <option>{artist}</option>
+                            artists.map((artist, index) => 
+                            <option key={index}>{artist}</option>
                             )
+                        
                         }
                     </select>
                 </nav>
@@ -49,7 +52,7 @@ const Header =(props)=>{
                        
             <ul>
                 <h2>{userArtist}</h2>
-                <Catalogue array={userImg}/>
+                <Catalogue array={userImages}/>
             </ul>
             
         </div>
