@@ -35,8 +35,6 @@ const Header =(props)=>{
         })
 
     }, [userArtist])
-
-    
     
     return(
         <div className="body">
