@@ -5,7 +5,6 @@ header{
     width:100%;
     background-color: white;
     border-bottom: 1.5px solid lightgray;
-    
 }
 
 nav{
@@ -14,7 +13,6 @@ nav{
     align-items: center;
     margin:0 auto;
     width:90%;
-    height:60px;
 }
 
 select{
@@ -28,4 +26,14 @@ h1 {
     font-size: 2rem;
     margin:0;
     padding:0;
+}
+
+.bodyContainer{
+    background-color: #FAF9F6;
+    margin:0;
+    padding:0;
+}
+
+h2{
+    margin:0;
 }

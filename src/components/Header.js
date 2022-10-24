@@ -47,16 +47,16 @@ const Header =(props)=>{
                             artists.map((artist, index) => 
                             <option key={index}>{artist}</option>
                             )
-                        
                         }
                     </select>
                 </nav>
             </header>
-                       
-            <ul>
-                <h2>{userArtist}</h2>
-                <Catalogue array={userImages}/>
-            </ul>
+            <div className="bodyContainer">
+                <h2>{userArtist}</h2>   
+                <ul>
+                    <Catalogue array={userImages}/>
+                </ul>
+            </div>      
             
         </div>
     
