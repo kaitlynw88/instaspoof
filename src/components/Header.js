@@ -29,9 +29,8 @@ const Header =(props)=>{
                 involvedMaker: userArtist
             }
         }).then((response) => {
-            //update our "art" state with the response from the API
             setUserImages(response.data.artObjects);
-            // setIsLoading(false)
+            
         })
 
     }, [userArtist])
