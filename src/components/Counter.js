@@ -21,7 +21,6 @@ const Counter =(props)=>{
         }
     }
     
-    
     return(
 
         <>

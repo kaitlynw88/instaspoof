@@ -2,6 +2,7 @@ import './app.scss';
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Header from './components/Header';
+import fireBase from "./components/firebase"
 
 function App() {
 

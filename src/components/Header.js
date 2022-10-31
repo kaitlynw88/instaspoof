@@ -42,6 +42,7 @@ const Header =(props)=>{
                     <h1>Instaspoof</h1>
             
                     <select onChange={e =>handleChange(e)}>
+                        
                         {
                             artists.map((artist, index) => 
                             <option key={index}>{artist}</option>
