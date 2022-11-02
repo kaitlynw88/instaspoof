@@ -2,6 +2,7 @@ import "./../styles/Catalogue.scss";
 import Counter from "./Counter";
 import Comments from "./Comments";
 
+
 const Catalogue = (props)=>{
 
     return(

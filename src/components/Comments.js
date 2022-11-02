@@ -2,22 +2,35 @@ import "./../styles/Comments.scss";
 import { useState, useEffect } from "react";
 
 const Comments = (props)=>{
-    const [userComment, setUserComment] = useState([])
+
+    // on component render (use effect), get all artpiece data from firebase
+    //on add comment click, take that comment and push it into firebase
+    const [userComment, setUserComment] = useState("")
+
+    const newArray = []
 
     const handleChange = (e)=>{
-        console.log(e.target.value)
+        setUserComment(e.target.value)
     }
     
     const handleSubmit = (e) => {
         e.preventDefault()
-        setUserComment(e.target.value)
+        newArray.push(userComment)
     }
-
+    
 
     return(
         <>
-            <input type="text" placeholder="comments here!" onChange={handleChange} onClick={handleSubmit} />
-            <button type="submit" >add your comment</button>
+            {
+                newArray.map(comment=>{
+                    return(
+                        <li>{comment}</li>
+                    )
+                })
+            }
+        
+            <input type="text" placeholder="comments here!" onChange={handleChange}/>
+            <button type="submit" onClick={handleSubmit}>add your comment</button>
         </>
     )
 }
